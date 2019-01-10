@@ -72,6 +72,8 @@ class Tensorflow::Tensor
     #
     def set_type(type)
         self.type_num, self.data_size, self.element_type = case type
+                                                           when :byte
+                                                               [Tensorflow::TF_UINT8, 1, Integer]
                                                            when :float
                                                                [Tensorflow::TF_FLOAT, 8, Float]
                                                            when :float64
